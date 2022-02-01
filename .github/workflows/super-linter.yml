@@ -3,9 +3,9 @@ name: Super-Linter
 on:
   # Trigger the workflow on push or pull request events but only for the main branch
   push:
-    branches: [ main ]
+    branches: [main]
   pull_request:
-    branches: [ main ]
+    branches: [main]
 
   # Allow to run this workflow manually from the Actions tab
   workflow_dispatch:
