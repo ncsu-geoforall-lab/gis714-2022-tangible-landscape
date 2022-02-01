@@ -32,6 +32,9 @@ and a local repository on your computer
    - Use the NC SPM sample location for GRASS GIS.
    - If you are using the Simple Python Editor, just run it from there.
 
+If the file is not in the `activities` directory or if it not a Python file
+with extension `.py`, it will be ignored by the automated system.
+
 ### Configure an activity
 
 1. Create a new JSON configuration file according to the provided example.
@@ -102,9 +105,10 @@ recognized by the word _ERROR_.
 Result of one of the checks needs to be examined manually.
 Its name is _Render activities_ and it is running the Python file and
 combining it with the associated JSON file into an HTML page.
-So, even when the check says _Successful_, click on _Details_
-and then open _Artifacts_, download the _activities-as-html_
-artifact, unzip it, find an HTML file named like your JSON file
+So, even when the check says _Successful_, click on _Details_ next to its name,
+then _Summary_ on the left, and then in _Artifacts_ at the bottom,
+download the _activities-as-html_ artifact,
+unzip it, find an HTML file named like your JSON file
 and open it in your web browser. You should see the title you provided
 and the rendering of your results according to what you specified
 in the JSON file. This provides you with the idea of what will
