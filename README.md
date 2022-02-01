@@ -13,31 +13,31 @@ and a local repository on your computer
 (to make changes and to test code locally):
 
 1. Fork this repository on GitHub.
-   * In the web interface, there is a *Fork* button.
+   - In the web interface, there is a _Fork_ button.
 1. Clone your fork on your computer.
-   * For example, in the command line, use the `git clone` command:
+   - For example, in the command line, use the `git clone` command:
      `git clone {url-of-the-repo}`
 
 ### Develop new analysis
 
 1. Create a new Python script according to the template.
-   * There is a template called `activity_template.py` in the `activities` directory
+   - There is a template called `activity_template.py` in the `activities` directory
      which gives information about the specific conventions.
-   * Use a unique filename, for example use your name (e.g., `petras_activity.py`).
-   * You can use the Simple Python Editor in GRASS GIS
+   - Use a unique filename, for example use your name (e.g., `petras_activity.py`).
+   - You can use the Simple Python Editor in GRASS GIS
      which will make it simple to executed Python code in GRASS GIS
      without additional setup.
 1. Develop a new analysis and write it as a function in the file.
 1. Test your analysis locally on your computer by executing the script.
-   * Use the NC SPM sample location for GRASS GIS.
-   * If you are using the Simple Python Editor, just run it from there.
+   - Use the NC SPM sample location for GRASS GIS.
+   - If you are using the Simple Python Editor, just run it from there.
 
 ### Configure an activity
 
 1. Create a new JSON configuration file according to the template.
-   * There is a template called `config_template.json` in the `activities` directory
+   - There is a template called `config_template.json` in the `activities` directory
      which provides an example of a minimal activity configuration.
-   * Again, use a unique filename, for example use your name (e.g., `petras_config.json`).
+   - Again, use a unique filename, for example use your name (e.g., `petras_config.json`).
 1. Set value for the `analyses` key to the filename of your Python script.
 1. Change `title` of the task and modify `layers` to fit your needs.
 
@@ -120,7 +120,7 @@ Repeat as needed.
 ## How to modify your activity
 
 When your PR is merged, the main, original repository is updated.
-Here, we will refer to this repository as the *upstream repository*.
+Here, we will refer to this repository as the _upstream repository_.
 What was updated in the upstream repository was the `main` branch
 which will be important in a moment.
 
@@ -131,7 +131,7 @@ now requires that you update your fork first.
 ### Update your fork
 
 To update your fork, first, you need to add the upstream repository as another
-*remote repository* to the clone on your local machine.
+_remote repository_ to the clone on your local machine.
 
 So, add the upstream repository as another remote repository called `upstream`.
 In command line, using:
