@@ -2,7 +2,14 @@
   "tasks": [
     {
       "layers": [
-        ["d.vect", "map=points", "color=77:77:77", "icon=basic/marker"]
+        [
+          "d.vect",
+          "map=points",
+          "icon=basic/pin",
+          "size=10",
+          "color=#00284E",
+          "fill_color=#00509E"
+        ]
       ],
       "base": "elev_lid792_1m",
       "scanning_params": {
