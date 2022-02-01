@@ -128,5 +128,9 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
+# Helper files people sometimes commit by mistake
+**/.DS_Store
+**/Thumbs.db
+
 # Generated web pages
 pages
