@@ -74,7 +74,7 @@ def main():
 
     # get the current environment variables as a copy
     env = os.environ.copy()
-    # we want to run this repetetively without deleted the created files
+    # we want to run this repetitively without deleted the created files
     env["GRASS_OVERWRITE"] = "1"
 
     elevation = "elev_lid792_1m"

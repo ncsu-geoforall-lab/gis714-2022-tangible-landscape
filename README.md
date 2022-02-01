@@ -23,7 +23,7 @@ and a local repository on your computer
 1. Create a new Python script according to the template.
    * There is a template called `activity_template.py` in the `activities` directory
      which gives information about the specific conventions.
-   * Use a unique filename, for example your name or your unique algorithm name.
+   * Use a unique filename, for example use your name (e.g., `petras_activity.py`).
    * You can use the Simple Python Editor in GRASS GIS
      which will make it simple to executed Python code in GRASS GIS
      without additional setup.
@@ -37,7 +37,7 @@ and a local repository on your computer
 1. Create a new JSON configuration file according to the template.
    * There is a template called `config_template.json` in the `activities` directory
      which provides an example of a minimal activity configuration.
-   * Again, use a unique filename.
+   * Again, use a unique filename, for example use your name (e.g., `petras_config.json`).
 1. Set value for the `analyses` key to the filename of your Python script.
 1. Change `title` of the task and modify `layers` to fit your needs.
 
