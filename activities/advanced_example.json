@@ -2,8 +2,7 @@
   "tasks": [
     {
       "layers": [
-        ["d.rast", "map=slope"],
-        ["d.vect", "map=contours", "color=77:77:77", "width=2"]
+        ["d.vect", "map=points", "color=77:77:77", "icon=basic/marker"]
       ],
       "base": "elev_lid792_1m",
       "scanning_params": {
@@ -13,8 +12,8 @@
         "interpolate": true
       },
       "calibrate": true,
-      "analyses": "activity_template.py",
-      "title": "Slope and contours"
+      "analyses": "advanced_example.py",
+      "title": "Load and Display Points"
     }
   ]
 }

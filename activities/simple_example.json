@@ -1,10 +1,9 @@
 {
-  "includeTasks": ".",
   "tasks": [
     {
       "layers": [
         ["d.rast", "map=slope"],
-        ["d.vect", "map=contours"]
+        ["d.vect", "map=contours", "color=77:77:77", "width=2"]
       ],
       "base": "elev_lid792_1m",
       "scanning_params": {
@@ -13,9 +12,8 @@
         "numscans": 1,
         "interpolate": true
       },
-      "calibrate": true,
-      "analyses": "simple_example.json",
-      "title": "Template"
+      "analyses": "simple_example.py",
+      "title": "Slope and contours"
     }
   ]
 }
