@@ -11,10 +11,10 @@ class TestFunctionsInFiles(unittest.TestCase):
 
     path = "activities/"
     allow_files = [
-        "advanced_example_activity.py",
-        "advanced_example_config.json",
-        "simple_example_activity.py",
-        "simple_example_config.json",
+        "advanced_example.json",
+        "advanced_example.py",
+        "simple_example.py",
+        "simple_example.json",
     ]
     forbid_words = ["template", "example"]
 
