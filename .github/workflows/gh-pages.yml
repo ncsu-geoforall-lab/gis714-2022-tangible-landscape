@@ -54,7 +54,7 @@ jobs:
         run: |
           mkdir pages
           cd pages
-          ../website/render_activities.py --no-individual-pages --exclude "*template*" ../activities/config.json ../nc_spm_08_grass7/user1
+          ../website/render_activities.py --no-individual-pages --exclude "*example*" ../activities/config.json ../nc_spm_08_grass7/user1
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3

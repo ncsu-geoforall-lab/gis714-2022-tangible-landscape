@@ -20,10 +20,10 @@ and a local repository on your computer
 
 ### Develop new analysis
 
-1. Create a new Python script according to the template.
-   - There is a template called `activity_template.py` in the `activities` directory
+1. Create a new Python script according to the provided example.
+   - There is an example called `simple_example.py` in the `activities` directory
      which gives information about the specific conventions.
-   - Use a unique filename, for example use your name (e.g., `petras_activity.py`).
+   - Use a unique filename, for example use your name (e.g., `petras.py`).
    - You can use the Simple Python Editor in GRASS GIS
      which will make it simple to executed Python code in GRASS GIS
      without additional setup.
@@ -34,12 +34,15 @@ and a local repository on your computer
 
 ### Configure an activity
 
-1. Create a new JSON configuration file according to the template.
-   - There is a template called `config_template.json` in the `activities` directory
+1. Create a new JSON configuration file according to the provided example.
+   - There is an example called `simple_example.json` in the `activities` directory
      which provides an example of a minimal activity configuration.
-   - Again, use a unique filename, for example use your name (e.g., `petras_config.json`).
+   - Again, use a unique filename, for example use your name (e.g., `petras.json`).
 1. Set value for the `analyses` key to the filename of your Python script.
 1. Change `title` of the task and modify `layers` to fit your needs.
+
+Note that the name of the JSON configuration file differs from the name of the
+Python file only by extension (`.json` versus `.py`).
 
 ### Create a pull request
 

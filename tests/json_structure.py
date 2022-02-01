@@ -45,7 +45,7 @@ class TestContentOfJsonFiles(unittest.TestCase):
     """Test to go through files and check internal structure and content"""
 
     path = "activities/"
-    config_template_name = "config_template.json"
+    config_example_names = ["advanced_example.json", "simple_example.json"]
     main_config_file = "config.json"
 
     def test_files_have_expected_content(self):
@@ -131,10 +131,12 @@ class TestContentOfJsonFiles(unittest.TestCase):
                             " which does not exist".format(**locals())
                         )
 
-    @unittest.skip("Too many contributed files with different names at this point")
     def test_python_filename_matches_json(self):
         """Check that filenames match if there is one task in a JSON file"""
         for filename, full_path in get_all_json_files(self.path):
+            if filename == self.main_config_file:
+                # Skip checking the main config file.
+                continue
             with open(full_path) as file_handle:
                 content = json.load(file_handle)
                 tasks = content["tasks"]
@@ -178,12 +180,18 @@ class TestContentOfJsonFiles(unittest.TestCase):
             )
 
     def test_configuration_is_not_from_template(self):
-        with open(os.path.join(self.path, self.config_template_name)) as file_handle:
+        """Check that configuration is different from provided examples or templates"""
+        for example in self.config_example_names:
+            self.configuration_is_not_from_template(example)
+
+    def configuration_is_not_from_template(self, example):
+        """Run comparison for one example or template file"""
+        with open(os.path.join(self.path, example)) as file_handle:
             # assuming we have exactly one task in the template
             template_task = json.load(file_handle)["tasks"][0]
         for filename, full_path in get_all_json_files(self.path):
             # do not check the template itself and main config
-            if filename in (self.config_template_name, self.main_config_file):
+            if filename in (example, self.main_config_file):
                 continue
             with open(full_path) as file_handle:
                 content = json.load(file_handle)
@@ -194,9 +202,9 @@ class TestContentOfJsonFiles(unittest.TestCase):
                         template_task[key],
                         msg=(
                             "Value of {key} in a task in {filename} matches"
-                            " value from the template {self.config_template_name}."
+                            " value from the example file {example}."
                             " {key} value should be different"
-                            " from the template."
+                            " from the provided example."
                             " Change the {key} value in {filename})".format(**locals())
                         ),
                     )
@@ -213,8 +221,8 @@ class TestContentOfJsonFiles(unittest.TestCase):
                     if match_count == len(task["layers"]):
                         self.fail(
                             "Layers in {filename} are identical with"
-                            " the template {self.config_template_name}."
-                            " Layers should be different from the template."
+                            " the example file {example}."
+                            " Layers should be different from the provided example."
                             " Add, remove, or modify the list of layers in {filename}"
                             " to match the output of analysis in {task[analyses]}".format(
                                 **locals()

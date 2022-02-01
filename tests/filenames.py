@@ -10,8 +10,13 @@ class TestFunctionsInFiles(unittest.TestCase):
     """Test to go through files and use"""
 
     path = "activities/"
-    allow_files = ["activity_template.py", "config_template.json"]
-    forbid_words = ["template"]
+    allow_files = [
+        "advanced_example.json",
+        "advanced_example.py",
+        "simple_example.py",
+        "simple_example.json",
+    ]
+    forbid_words = ["template", "example"]
 
     def test_filenames(self):
         """Check that files are named properly"""

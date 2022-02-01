@@ -14,7 +14,7 @@
         "interpolate": true
       },
       "calibrate": true,
-      "analyses": "activity_template.py",
+      "analyses": "simple_example.json",
       "title": "Template"
     }
   ]
