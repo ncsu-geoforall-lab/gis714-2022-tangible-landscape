@@ -103,6 +103,14 @@ def image_to_text(filename):
     return "data:image/png;base64,{0}".format(data)
 
 
+def add_head(dom, parent, title):
+    head_element = dom.createElement("head")
+    title_element = dom.createElement("title")
+    title_element.appendChild(dom.createTextNode(title))
+    head_element.appendChild(title_element)
+    parent.appendChild(head_element)
+
+
 def add_activity(dom, parent, activity, image, heading_level, image_as_data):
     heading = dom.createElement(heading_level)
     heading.appendChild(dom.createTextNode(activity["title"]))
@@ -115,13 +123,16 @@ def add_activity(dom, parent, activity, image, heading_level, image_as_data):
     description = dom.createElement("p")
     description.appendChild(dom.createTextNode(activity["instructions"]))
     parent.appendChild(description)
+    img_paragraph = dom.createElement("p")
     img = dom.createElement("img")
     if image_as_data:
         data = image_to_text(image)
         img.setAttribute("src", data)
     else:
         img.setAttribute("src", image)
-    parent.appendChild(img)
+    img.setAttribute("alt", "Image rendered by the activity")
+    img_paragraph.appendChild(img)
+    parent.appendChild(img_paragraph)
 
 
 def create_activity_page(activity, image, filename):
@@ -134,9 +145,7 @@ def create_activity_page(activity, image, filename):
     )
     dom = impl.createDocument("http://www.w3.org/1999/xhtml", "html", doc_type)
     html = dom.documentElement
-    title = dom.createElement("title")
-    title.appendChild(dom.createTextNode(activity["title"]))
-    html.appendChild(title)
+    add_head(dom=dom, parent=html, title=activity["title"])
     body = dom.createElement("body")
     add_activity(
         dom=dom,
@@ -166,9 +175,7 @@ class IndexPage:
             "http://www.w3.org/1999/xhtml", "html", doc_type
         )
         self._html = self._dom.documentElement
-        title_element = self._dom.createElement("title")
-        title_element.appendChild(self._dom.createTextNode(title))
-        self._html.appendChild(title_element)
+        add_head(dom=self._dom, parent=self._html, title=title)
         self._body = self._dom.createElement("body")
         heading = self._dom.createElement("h1")
         heading.appendChild(self._dom.createTextNode(title))
