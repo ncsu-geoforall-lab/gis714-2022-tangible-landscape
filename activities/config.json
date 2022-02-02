@@ -15,7 +15,9 @@
       },
       "calibrate": true,
       "analyses": "simple_example.json",
-      "title": "Template"
+      "title": "Skip This Activity",
+      "author": "Main Contributor",
+      "instructions": "This is just a placeholder because something needs to be in this config."
     }
   ]
 }

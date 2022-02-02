@@ -103,6 +103,27 @@ def image_to_text(filename):
     return "data:image/png;base64,{0}".format(data)
 
 
+def add_activity(dom, parent, activity, image, heading_level, image_as_data):
+    heading = dom.createElement(heading_level)
+    heading.appendChild(dom.createTextNode(activity["title"]))
+    parent.appendChild(heading)
+    author = dom.createElement("p")
+    emphasis = dom.createElement("em")
+    emphasis.appendChild(dom.createTextNode(f"Created by {activity['author']}."))
+    author.appendChild(emphasis)
+    parent.appendChild(author)
+    description = dom.createElement("p")
+    description.appendChild(dom.createTextNode(activity["instructions"]))
+    parent.appendChild(description)
+    img = dom.createElement("img")
+    if image_as_data:
+        data = image_to_text(image)
+        img.setAttribute("src", data)
+    else:
+        img.setAttribute("src", image)
+    parent.appendChild(img)
+
+
 def create_activity_page(activity, image, filename):
     """Create HTML page for an activity given its definition and redered image"""
     impl = getDOMImplementation()
@@ -117,13 +138,14 @@ def create_activity_page(activity, image, filename):
     title.appendChild(dom.createTextNode(activity["title"]))
     html.appendChild(title)
     body = dom.createElement("body")
-    heading = dom.createElement("h1")
-    heading.appendChild(dom.createTextNode(activity["title"]))
-    body.appendChild(heading)
-    img = dom.createElement("img")
-    data = image_to_text(image)
-    img.setAttribute("src", data)
-    body.appendChild(img)
+    add_activity(
+        dom=dom,
+        parent=body,
+        activity=activity,
+        image=image,
+        heading_level="h1",
+        image_as_data=True,
+    )
     html.appendChild(body)
     with open(filename, mode="w") as out:
         out.write(dom.toxml())
@@ -154,12 +176,14 @@ class IndexPage:
 
     def add_activity(self, activity, image):
         """Add one activity and its image"""
-        heading = self._dom.createElement("h2")
-        heading.appendChild(self._dom.createTextNode(activity["title"]))
-        self._body.appendChild(heading)
-        img = self._dom.createElement("img")
-        img.setAttribute("src", image)
-        self._body.appendChild(img)
+        add_activity(
+            dom=self._dom,
+            parent=self._body,
+            activity=activity,
+            image=image,
+            heading_level="h2",
+            image_as_data=False,
+        )
 
     def finish(self):
         """Finish creating HTML and write it to file"""
