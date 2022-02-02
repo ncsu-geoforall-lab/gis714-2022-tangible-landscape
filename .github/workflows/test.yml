@@ -10,8 +10,12 @@ on:
 
 jobs:
   test-functions:
-    name: Run scripts
-    runs-on: ubuntu-18.04
+    name: Run scripts (${{ matrix.os }})
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os:
+          - ubuntu-20.04
 
     steps:
       - uses: actions/checkout@v2
@@ -23,6 +27,7 @@ jobs:
       - name: Test GRASS GIS
         run: |
           grass --tmp-location XY --exec g.version -e
+          grass --tmp-location XY --exec python --version
       - name: Cache sample data
         uses: actions/cache@v1
         id: cache
