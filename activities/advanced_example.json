@@ -20,7 +20,9 @@
       },
       "calibrate": true,
       "analyses": "advanced_example.py",
-      "title": "Load and Display Points"
+      "title": "Load and Display Points",
+      "author": "Another Advanced Contributor",
+      "instructions": "Place markers on the landscape and see how they are detected."
     }
   ]
 }

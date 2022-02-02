@@ -46,6 +46,7 @@ class TestContentOfJsonFiles(unittest.TestCase):
 
     path = "activities/"
     config_example_names = ["advanced_example.json", "simple_example.json"]
+    text_items = ["title", "analyses", "author", "instructions"]
     main_config_file = "config.json"
 
     def test_files_have_expected_content(self):
@@ -94,6 +95,25 @@ class TestContentOfJsonFiles(unittest.TestCase):
                             )
                         ),
                     )
+                    for item_key in self.text_items:
+                        self.assertIn(
+                            item_key,
+                            task,
+                            msg=f"task needs to have {item_key} (fix {filename})",
+                        )
+                        item = task[item_key]
+                        self.assertIsInstance(
+                            item,
+                            str,
+                            msg=(
+                                f"{item_key} must be str (string of characters), "
+                                f"not {type(item)} (fix {filename})"
+                            ),
+                        )
+                        self.assertTrue(
+                            item, msg=f"{item_key} must not be empty (fix {filename})"
+                        )
+
                     layers = task["layers"]
                     self.assertIsInstance(
                         layers,
@@ -196,7 +216,7 @@ class TestContentOfJsonFiles(unittest.TestCase):
             with open(full_path) as file_handle:
                 content = json.load(file_handle)
             for task in content["tasks"]:
-                for key in ("title", "analyses"):
+                for key in self.text_items:
                     self.assertNotEqual(
                         task[key],
                         template_task[key],
