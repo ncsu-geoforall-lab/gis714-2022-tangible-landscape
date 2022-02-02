@@ -190,7 +190,8 @@ class TestContentOfJsonFiles(unittest.TestCase):
             0,
             msg=(
                 "There should be no Python files in the root (main) directory, "
-                f"but the following .py files are there: {files}"
+                f"but the following .py files are there: {files} "
+                "All Python files for activities should be in the activities directory."
             ),
         )
         files = get_all_json_files(".")
@@ -199,7 +200,8 @@ class TestContentOfJsonFiles(unittest.TestCase):
             0,
             msg=(
                 "There should be no JSON config files in the root (main) directory, "
-                f"but the following .json files are there: {files}"
+                f"but the following .json files are there: {files} "
+                "All JSON files for activities should be in the activities directory."
             ),
         )
 
