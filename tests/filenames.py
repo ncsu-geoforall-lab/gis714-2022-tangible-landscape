@@ -4,6 +4,7 @@
 
 import os
 import unittest
+from pathlib import Path
 
 
 class TestFunctionsInFiles(unittest.TestCase):
@@ -21,8 +22,22 @@ class TestFunctionsInFiles(unittest.TestCase):
     def test_filenames(self):
         """Check that files are named properly"""
         for filename in os.listdir(self.path):
+            not_allowed = " ."
+            for character in not_allowed:
+                name = Path(filename).stem
+                self.assertNotIn(
+                    character,
+                    name,
+                    msg=(
+                        f"The name '{filename}' contains '{character}', "
+                        f"however characters '{not_allowed}' are not allowed "
+                        "(replace it, e.g., by underscore)"
+                    ),
+                )
+
             if filename in self.allow_files:
                 continue
+
             for expr in [r".*test_?[0-9]+\..*", r"^test\."]:
                 self.assertNotRegex(
                     filename,

@@ -178,6 +178,33 @@ class TestContentOfJsonFiles(unittest.TestCase):
                     )
                 # else skip the test
 
+    def test_files_not_in_root(self):
+        """Check that no Python and JSON files are in the root directory"""
+        # There is no code for ignoring (allowing) some files,
+        # but we don't need any now.
+        files = get_all_python_files(".")
+        # files is list of tuples and we print it as is,
+        # so the readability is not ideal.
+        self.assertEqual(
+            len(files),
+            0,
+            msg=(
+                "There should be no Python files in the root (main) directory, "
+                f"but the following .py files are there: {files} "
+                "All Python files for activities should be in the activities directory."
+            ),
+        )
+        files = get_all_json_files(".")
+        self.assertEqual(
+            len(files),
+            0,
+            msg=(
+                "There should be no JSON config files in the root (main) directory, "
+                f"but the following .json files are there: {files} "
+                "All JSON files for activities should be in the activities directory."
+            ),
+        )
+
     def test_python_file_in_json(self):
         """Check that all Python files are referenced by a JSON config file"""
         for python_filename, python_full_path in get_all_python_files(self.path):
