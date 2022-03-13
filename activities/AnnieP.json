@@ -1,0 +1,20 @@
+{
+  "tasks": [
+    {
+      "layers": [
+        ["d.rast", "map=viewshed"]
+      ],
+      "base": "elev_lid792_1m",
+      "scanning_params": {
+        "smooth": 10,
+        "zexag": 2,
+        "numscans": 1,
+        "interpolate": true
+      },
+      "analyses": "AnnieP.py",
+      "title": "2m Viewshed",
+      "author": "Annie Paulukonis",
+      "instructions": "Evalate 2 meter viewshed from specified locatin on landscape."
+    }
+  ]
+}
