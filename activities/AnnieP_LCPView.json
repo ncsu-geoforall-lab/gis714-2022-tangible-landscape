@@ -1,0 +1,21 @@
+{
+  "tasks": [
+    {
+      "layers": [
+        ["d.rast", "map=viewshed"],
+        ["d.vect", "map=cost","color=77:77:77", "width=2"]  
+      ],
+      "base": "elev_lid792_1m",
+      "scanning_params": {
+        "smooth": 10,
+        "zexag": 2,
+        "numscans": 1,
+        "interpolate": true
+      },
+      "analyses": "AnnieP_LCPView.py",
+      "title": "LCP and viewshed from end",
+      "author": "Annie",
+      "instructions": "Map LCP, and the 2m viewshed from the end of the path."
+    }
+  ]
+}
