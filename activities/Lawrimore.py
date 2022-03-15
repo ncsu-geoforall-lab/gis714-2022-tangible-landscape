@@ -6,11 +6,18 @@ import grass.script as gs
 
 
 def run_slope(scanned_elev, env, **kwargs):
-    gs.run_command("r.slope.aspect", elevation=scanned_elev, slope="slope", aspect = "aspect", env=env)
+    gs.run_command(
+        "r.slope.aspect",
+        elevation=scanned_elev,
+        slope="slope",
+        aspect="aspect",
+        env=env,
+    )
     # set new color table: plasma
-    gs.run_command('r.colors', map='slope', color='plasma', env=env)
+    gs.run_command("r.colors", map="slope", color="plasma", env=env)
     # set new color table: green - yellow - red
-    gs.run_command('r.colors', map='aspect', color='gyr', env=env)
+    gs.run_command("r.colors", map="aspect", color="gyr", env=env)
+
 
 def main():
     env = os.environ.copy()
