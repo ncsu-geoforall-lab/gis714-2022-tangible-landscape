@@ -22,4 +22,5 @@ jobs:
         env:
           DEFAULT_BRANCH: main
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          MULTI_STATUS: false
           VALIDATE_NATURAL_LANGUAGE: false
