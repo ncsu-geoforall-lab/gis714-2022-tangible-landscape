@@ -6,7 +6,7 @@ import grass.script as gs
 
 
 def LCP(elevation, start_coordinate, end_coordinate, env):
-    gs.run_command("r.slope.aspect", elevation="elev_lid792_1m", slope="slope", env=env)
+    gs.run_command("r.slope.aspect", elevation=elevation, slope="slope", env=env)
     gs.run_command(
         "r.cost",
         input="slope",
