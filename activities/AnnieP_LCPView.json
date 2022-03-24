@@ -3,7 +3,7 @@
     {
       "layers": [
         ["d.rast", "map=viewshed"],
-        ["d.vect", "map=cost","color=77:77:77", "width=2"]  
+        ["d.rast", "map=cost"]  
       ],
       "base": "elev_lid792_1m",
       "scanning_params": {
