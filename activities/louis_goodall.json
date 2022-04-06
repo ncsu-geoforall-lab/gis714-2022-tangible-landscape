@@ -12,7 +12,7 @@
             "analyses": "louis_goodall.py",
             "title": "Contours",
             "author": "Example Contributor",
-            "instructions": "Change topography and observe changes in vectorised contour line.",
+            "instructions": "Change topography and observe changes in vectorised contour line."
         }
     ]
 }
