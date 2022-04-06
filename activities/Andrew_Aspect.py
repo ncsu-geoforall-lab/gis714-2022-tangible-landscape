@@ -16,8 +16,8 @@ def run_aspect_class(scanned_elev, env, **kwargs):
     )
     # reclassify using rules passed as a string to standard input
     # 0:67.5:1 means reclassify interval 0 to 67.5 degrees to category 1
-    # The degree ranges reflect the extent of ENE to WNW 
-    # All other values (including slopes < 8.0) set to null
+    # The degree ranges reflect the extent of ENE to WNW
+    # All other values (including slope < 8.0) set to null
     rules = [
         "0:67.5:1",
         "67.5:292.5:NULL",
