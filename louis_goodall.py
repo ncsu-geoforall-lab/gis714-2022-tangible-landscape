@@ -17,7 +17,7 @@ def main():
     gs.run_command("g.region", raster=elevation, res=4, flags="a", env=env)
     gs.run_command("r.resamp.stats", input=elevation, output=elev_resampled, env=env)
 
-    run_contour(scanned_elev=elev_resampled, env=env., )
+    run_contour(scanned_elev=elev_resampled, env=env)
 
 if __name__ == '__main__':
     main()
