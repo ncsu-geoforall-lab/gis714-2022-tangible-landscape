@@ -6,7 +6,9 @@ import grass.script as gs
 
 
 def run_contour(scanned_elev, env, **kwargs):
-    gs.run_command("r.contour", input=scanned_elev, output="contours", levels=[15,30,45])
+    gs.run_command(
+        "r.contour", input=scanned_elev, output="contours", levels=[15, 30, 45]
+    )
 
 
 def main():
@@ -19,5 +21,6 @@ def main():
 
     run_contour(scanned_elev=elev_resampled, env=env)
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     main()
