@@ -3,7 +3,7 @@
       {
          "layers":[
             [
-               "d.rast",
+               "d.vect",
                "map=contours"
             ]
          ],
