@@ -15,13 +15,13 @@ def run_aspect_class(scanned_elev, env, **kwargs):
         env=env,
     )
     # reclassify using rules passed as a string to standard input
-    # 0:22.5:1 means reclassify interval 0 to 22.5 percent of aspect to category 1
+    # 0:67.5:1 means reclassify interval 0 to 67.5 degrees to category 1
+    # The degree ranges reflect the extent of ENE to WNW 
+    # All other values (including slopes < 8.0) set to null
     rules = [
-        "0:22.5:1",
-        "22.5:67.5:1",
+        "0:67.5:1",
         "67.5:292.5:NULL",
-        "292.5:337.5:1",
-        "337.5:360:1",
+        "292.5:360:1",
         "*:-9999:NULL",
     ]
     gs.write_command(
@@ -49,3 +49,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+s
