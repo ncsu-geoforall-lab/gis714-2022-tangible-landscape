@@ -21,7 +21,7 @@ import grass.script as gs
 
 
 # Edit here:
-def run_sun_shadow(scanned_elev, env, **kwargs):
+def run_sunshadow(scanned_elev, env, **kwargs):
     gs.run_command(
         "r.sunmask",
         elevation=scanned_elev,
