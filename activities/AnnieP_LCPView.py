@@ -51,7 +51,6 @@ def main():
     elev_resampled = "elev_resampled"
     gs.run_command("g.region", raster=elevation, res=4, flags="a", env=env)
     gs.run_command("r.resamp.stats", input=elevation, output=elev_resampled, env=env)
-    
     LCP(elev_resampled, start, end, env)  # run the LCP command
     run_viewshed(scanned_elev=elev_resampled, env=env)  # run the viewshed from the end
 
