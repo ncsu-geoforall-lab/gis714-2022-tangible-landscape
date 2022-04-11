@@ -2,8 +2,9 @@
   "tasks": [
     {
       "layers": [
-        ["d.rast", "map=viewshed"],
-        ["d.rast", "map=cost"]  
+        ["d.rast", "map=cost"] ,
+        ["d.rast", "map=viewshed", "values=1"]
+
       ],
       "base": "elev_lid792_1m",
       "scanning_params": {
