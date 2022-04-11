@@ -54,7 +54,7 @@ def main():
     # Edit here:
     # Place your function call or calls here.
     # This will run both examples (slope and contours).
-    runsunshadow(scanned_elev=elev_resampled, env=env)
+    run_sunshadow(scanned_elev=elev_resampled, env=env)
 
 
 if __name__ == "__main__":
