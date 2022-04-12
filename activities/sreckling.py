@@ -28,7 +28,7 @@ def run_sunshadow(scanned_elev, env, **kwargs):
         year=2022,
         month=2,
         day=22,
-        hour=10,
+        hour=8,
         minute=30,
         timezone=-5,
         output="shadow",
