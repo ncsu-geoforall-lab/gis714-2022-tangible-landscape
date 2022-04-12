@@ -15,21 +15,13 @@ def run_curvatures(scanned_elev, env, **kwargs):
         env=env,
     )
     gs.run_command(
-        "r.param.scale",
-        input=scanned_elev,
-        output="tangential_curv",
-        method="crosc",
-        size=11,
-        env=env,
-    )
-    gs.run_command(
-        "r.colors", map=["profile_curv", "tangential_curv"], color="curvature", env=env
+        "r.colors", map=["profile_curv"], color="curvature", env=env
     )
 
-    gs.run_command(
-        "r.mapcalc",
-        expression="curvature_mix = if(row() > col(), tangential_curv, profile_curv)",
-    )
+    #gs.run_command(
+    #    "r.mapcalc",
+    #    expression="curvature_mix = if(row() > col(), tangential_curv, profile_curv)",
+    #)
 
 
 def main():
