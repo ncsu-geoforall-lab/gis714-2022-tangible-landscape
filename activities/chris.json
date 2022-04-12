@@ -1,7 +1,7 @@
 {
     "tasks": [
         {
-            "layers": [["d.rast", "map=profile_curv"],],
+            "layers": [["d.rast", "map=profile_curv"]],
             "base": "elev_lid792_1m",
             "scanning_params": {
                 "smooth": 10,
