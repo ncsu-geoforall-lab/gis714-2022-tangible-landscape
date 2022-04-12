@@ -7,7 +7,7 @@ import grass.script as gs
 
 def run_contour(scanned_elev, env, **kwargs):
     gs.run_command(
-        "r.contour", input=scanned_elev, env=env, output="contours", levels=[15, 30, 45]
+        "r.contour", input=scanned_elev, env=env, output="contours", levels=[100, 125, 150]
     )
 
 
