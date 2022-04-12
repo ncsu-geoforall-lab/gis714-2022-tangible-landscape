@@ -14,14 +14,12 @@ def run_curvatures(scanned_elev, env, **kwargs):
         size=11,
         env=env,
     )
-    gs.run_command(
-        "r.colors", map=["profile_curv"], color="curvature", env=env
-    )
+    gs.run_command("r.colors", map=["profile_curv"], color="curvature", env=env)
 
-    #gs.run_command(
+    # gs.run_command(
     #    "r.mapcalc",
     #    expression="curvature_mix = if(row() > col(), tangential_curv, profile_curv)",
-    #)
+    # )
 
 
 def main():
