@@ -7,12 +7,10 @@
                 "smooth": 10,
                 "zexag": 2,
                 "numscans": 1,
-                "interpolate": true,
-            },
+                "interpolate": true},
             "analyses": "simple_example.py",
             "title": "curv example",
             "author": "Christopher Dunstan",
-            "instructions": "Calcuate curvature of landscape.",
-        }
+            "instructions": "Calcuate curvature of landscape."}
     ]
 }
