@@ -36,6 +36,15 @@ def run_sunshadow(scanned_elev, env, **kwargs):
     )
 
 
+def run_relief(scanned_elev, env, **kwargs):
+    gs.run_command(
+        "r.relief",
+        input=scanned_elev,
+        output="relief",
+        env=env,
+    )
+
+
 def main():
     """Function which runs when testing without Tangible Landscape"""
 
