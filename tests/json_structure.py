@@ -118,9 +118,7 @@ class TestContentOfJsonFiles(unittest.TestCase):
                     self.assertIsInstance(
                         layers,
                         list,
-                        msg="layers must be a list (of layers), not {provided_type}".format(
-                            provided_type=type(layers)
-                        ),
+                        msg=f"layers must be a list (of layers), not {type(layers)}",
                     )
                     self.assertTrue(
                         layers, msg="layers list must contain at least one item (layer)"
@@ -129,9 +127,7 @@ class TestContentOfJsonFiles(unittest.TestCase):
                         self.assertIsInstance(
                             layer,
                             list,
-                            msg="layer must be a list (a command), not {provided_type}".format(
-                                provided_type=type(layer)
-                            ),
+                            msg=f"layer must be a list (a command), not {type(layer)}",
                         )
                         self.assertTrue(
                             layer,
@@ -169,7 +165,7 @@ class TestContentOfJsonFiles(unittest.TestCase):
                         python_file_no_ext,
                         json_file_no_ext,
                         msg=(
-                            "Python filename {python_file}"
+                            f"Python filename {python_file}"
                             " does not match JSON filename {filename}"
                             " (required for files with only one task)".format(
                                 **locals()
@@ -267,13 +263,11 @@ class TestContentOfJsonFiles(unittest.TestCase):
 
                     if match_count == len(task["layers"]):
                         self.fail(
-                            "Layers in {filename} are identical with"
-                            " the example file {example}."
+                            f"Layers in {filename} are identical with"
+                            f" the example file {example}."
                             " Layers should be different from the provided example."
-                            " Add, remove, or modify the list of layers in {filename}"
-                            " to match the output of analysis in {task[analyses]}".format(
-                                **locals()
-                            )
+                            f" Add, remove, or modify the list of layers in {filename}"
+                            f" to match the output of analysis in {task['analyses']}"
                         )
 
 
