@@ -8,7 +8,7 @@
                 "zexag": 2,
                 "numscans": 1,
                 "interpolate": true},
-            "analyses": "simple_example.py",
+            "analyses": "chris.py",
             "title": "curv example",
             "author": "Christopher Dunstan",
             "instructions": "Calcuate curvature of landscape."}
