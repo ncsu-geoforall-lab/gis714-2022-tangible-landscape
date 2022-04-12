@@ -11,7 +11,7 @@
         "numscans": 1,
         "interpolate": true
       },
-      "analyses": "simple_example.py",
+      "analyses": "chris.py",
       "title": "Slope and Contours",
       "author": "Example Contributor",
       "instructions": "Change topography and observe changes in slope and contours."

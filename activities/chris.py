@@ -5,15 +5,26 @@ import os
 import grass.script as gs
 
 
-
 def run_curvatures(scanned_elev, env, **kwargs):
-    gs.run_command('r.param.scale', input=scanned_elev, output='profile_curv',
-                   method='profc', size=11, env=env)
-    gs.run_command('r.param.scale', input=scanned_elev, output='tangential_curv',
-                   method='crosc', size=11, env=env)
-    gs.run_command('r.colors', map=['profile_curv', 'tangential_curv'], color='curvature', env=env)
-
-
+    gs.run_command(
+        "r.param.scale",
+        input=scanned_elev,
+        output="profile_curv",
+        method="profc",
+        size=11,
+        env=env,
+    )
+    gs.run_command(
+        "r.param.scale",
+        input=scanned_elev,
+        output="tangential_curv",
+        method="crosc",
+        size=11,
+        env=env,
+    )
+    gs.run_command(
+        "r.colors", map=["profile_curv", "tangential_curv"], color="curvature", env=env
+    )
 
 
 def main():
