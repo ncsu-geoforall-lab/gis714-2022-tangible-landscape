@@ -4,7 +4,7 @@
             "layers": [["d.rast", "map=curvature_mix"]],
             "base": "elev_lid792_1m",
             "scanning_params": {
-                "smooth": 10,
+                "smooth": 5,
                 "zexag": 2,
                 "numscans": 1,
                 "interpolate": true,
