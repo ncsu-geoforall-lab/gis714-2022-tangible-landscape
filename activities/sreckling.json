@@ -2,8 +2,8 @@
   "tasks": [
     {
       "layers": [
-        ["d.rast", "map=shadow"],
-        ["d.rast", "map=relief"]
+        ["d.rast", "map=relief"],
+        ["d.rast", "map=shadow"]
       ],
       "base": "elev_lid792_1m",
       "scanning_params": {
