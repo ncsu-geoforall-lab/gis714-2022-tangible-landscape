@@ -12,9 +12,9 @@
         "interpolate": true
       },
       "analyses": "chris.py",
-      "title": "Slope and Contours",
-      "author": "Example Contributor",
-      "instructions": "Change topography and observe changes in slope and contours."
+      "title": "curvatures",
+      "author": "Christopher Dunstan",
+      "instructions": "observe changes in curvatures of landscape."
     }
   ]
 }
