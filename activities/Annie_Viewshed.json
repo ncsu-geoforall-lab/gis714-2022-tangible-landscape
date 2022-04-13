@@ -11,6 +11,9 @@
         "numscans": 1,
         "interpolate": true
       },
+      "scanning_params": {"smooth": 8, "zexag": 2, "numscans": 1, "interpolate": true},
+      "calibration_scanning_params": {"smooth": 12, "numscans": 1, "interpolate": true},
+      "calibrate": true,
       "analyses": "Annie_Viewshed.py",
       "title": "Simple 2m Viewshed",
       "author": "Annie",

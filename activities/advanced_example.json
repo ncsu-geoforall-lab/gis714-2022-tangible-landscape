@@ -6,7 +6,7 @@
           "d.vect",
           "map=points",
           "icon=basic/pin",
-          "size=10",
+          "size=60",
           "color=#00284E",
           "fill_color=#00509E"
         ]

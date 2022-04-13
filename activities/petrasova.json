@@ -10,8 +10,8 @@
         ]
       ],
       "base": "elev_lid792_1m",
-      "scanning_params": {"smooth": 8, "zexag": 2, "numscans": 3, "interpolate": true},
-      "calibration_scanning_params": {"smooth": 10, "numscans": 1, "interpolate": true},
+      "scanning_params": {"smooth": 8, "zexag": 2, "numscans": 1, "interpolate": true},
+      "calibration_scanning_params": {"smooth": 12, "numscans": 1, "interpolate": true},
       "calibrate": true,
       "analyses": "petrasova.py",
       "title": "Flow tracing",

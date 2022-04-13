@@ -58,14 +58,14 @@ def run_function_with_points(scanned_elev, env, points=None, **kwargs):
         .strip()
         .splitlines()
     )
-    if len(point_list) < 2:
+    if len(data) < 2:
         # For the cases when the analysis expects at least 2 points, we check the
         # number of points and return from the function if there is less than 2
         # points. (No points is a perfectly valid state in Tangible Landscape,
         # so we need to deal with it here.)
         return
     for point in data:
-        point_list.append([float(p) for p in point.split(",")])
+        point_list.append([float(p) for p in point.split(",")][:2])
 
 
 def main():
