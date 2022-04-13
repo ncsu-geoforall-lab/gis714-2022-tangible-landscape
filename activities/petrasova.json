@@ -1,0 +1,22 @@
+{
+  "tasks": [
+      {
+      "layers": [
+        [
+          "d.rast", "map=scan_saved"
+        ],
+        [
+          "d.vect", "map=drain", "color=30:144:255", "width=8"
+        ]
+      ],
+      "base": "elev_lid792_1m",
+      "scanning_params": {"smooth": 8, "zexag": 2, "numscans": 3, "interpolate": true},
+      "calibration_scanning_params": {"smooth": 10, "numscans": 1, "interpolate": true},
+      "calibrate": true,
+      "analyses": "petrasova.py",
+      "title": "Flow tracing",
+      "author": "Anna Petrasova",
+      "instructions": "Place markers to see where water would flow from that site given the current topography."
+    }
+  ]
+}
