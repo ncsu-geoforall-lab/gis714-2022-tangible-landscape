@@ -1,0 +1,16 @@
+{
+    "tasks": [
+        {
+            "layers": [["d.rast", "map=profile_curv"]],
+            "base": "elev_lid792_1m",
+            "scanning_params": {
+                "smooth": 10,
+                "zexag": 2,
+                "numscans": 1,
+                "interpolate": true},
+            "analyses": "chris.py",
+            "title": "curv example",
+            "author": "Christopher Dunstan",
+            "instructions": "Calcuate curvature of landscape."}
+    ]
+}
