@@ -1,0 +1,23 @@
+{
+   "tasks":[
+      {
+         "layers":[
+            [
+               "d.vect",
+               "map=contours"
+            ]
+         ],
+         "base":"elev_lid792_1m",
+         "scanning_params":{
+            "smooth":10,
+            "zexag":2,
+            "numscans":1,
+            "interpolate":true
+         },
+         "analyses":"louis_goodall.py",
+         "title":"Contours",
+         "author":"Louis Goodall",
+         "instructions":"Change topography and observe changes in vectorised contour line."
+      }
+   ]
+}
