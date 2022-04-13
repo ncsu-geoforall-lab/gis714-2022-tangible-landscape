@@ -8,14 +8,11 @@ import grass.script as gs
 def run_viewshed(scanned_elev, scanned_calib_elev, env, points=None, **kwargs):
     viewshed = "viewshed"
     if not points:
-        elev_no_points = scanned_calib_elev
         points = "points"
         import analyses
-        from tangible_utils import get_environment
 
-        env2 = get_environment(raster=elev_no_points)
         analyses.change_detection(
-            "scan_saved",
+            scanned_calib_elev,
             scanned_elev,
             points,
             height_threshold=[10, 100],
