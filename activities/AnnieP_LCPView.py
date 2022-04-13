@@ -5,9 +5,7 @@ import os
 import grass.script as gs
 
 
-def run_function_with_points(
-    scanned_elev, scanned_calib_elev, env, points=None, **kwargs
-):
+def run_LCP(scanned_elev, scanned_calib_elev, env, points=None, **kwargs):
     """Doesn't do anything, except loading points from a vector map to Python
 
     If *points* is provided, the function assumes it is name of an existing vector map.
@@ -93,13 +91,27 @@ def main():
     env = os.environ.copy()
     env["GRASS_OVERWRITE"] = "1"
     elevation = "elev_lid792_1m"
-    start = [638469, 220070]
-    end = [638928, 220472]
     elev_resampled = "elev_resampled"
     gs.run_command("g.region", raster=elevation, res=4, flags="a", env=env)
     gs.run_command("r.resamp.stats", input=elevation, output=elev_resampled, env=env)
-    LCP(elev_resampled, start, end, env)  # run the LCP command
-    run_viewshed(scanned_elev=elev_resampled, env=env)  # run the viewshed from the end
+    # Code specific to testing of the analytical function.
+    # Create points which is the additional input needed for the process.
+    points = "points"
+    gs.write_command(
+        "v.in.ascii",
+        flags="t",
+        input="-",
+        output=points,
+        separator="comma",
+        stdin="638432,220382\n638621,220607",
+        env=env,
+    )
+    run_LCP(
+        scanned_elev=elev_resampled,
+        scanned_calib_elev=elev_resampled,
+        points=points,
+        env=env,
+    )  # run the viewshed from the end
 
 
 if __name__ == "__main__":

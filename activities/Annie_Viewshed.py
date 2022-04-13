@@ -8,14 +8,11 @@ import grass.script as gs
 def run_viewshed(scanned_elev, scanned_calib_elev, env, points=None, **kwargs):
     viewshed = "viewshed"
     if not points:
-        elev_no_points = scanned_calib_elev
         points = "points"
         import analyses
-        from tangible_utils import get_environment
 
-        env2 = get_environment(raster=elev_no_points)
         analyses.change_detection(
-            "scan_saved",
+            scanned_calib_elev,
             scanned_elev,
             points,
             height_threshold=[10, 100],
@@ -25,12 +22,9 @@ def run_viewshed(scanned_elev, scanned_calib_elev, env, points=None, **kwargs):
             debug=True,
             env=env,
         )
-    else:
-        elev_no_points = scanned_elev
-        env2 = env
+
     # if points detected
     if gs.vector_info_topo("points")["points"]:
-        point_list = []
         data = (
             gs.read_command(
                 "v.out.ascii",
@@ -46,7 +40,7 @@ def run_viewshed(scanned_elev, scanned_calib_elev, env, points=None, **kwargs):
         gs.run_command(
             "r.viewshed",
             input=scanned_calib_elev,
-            output="viewshed",
+            output=viewshed,
             coordinates=[float(p) for p in data.split(",")][:2],
             observer_elevation=2,
             flags="b",
@@ -54,15 +48,37 @@ def run_viewshed(scanned_elev, scanned_calib_elev, env, points=None, **kwargs):
         )
     else:
         # create empty vector
-        gs.mapcalc("viewshed = null()", env=env)
+        gs.mapcalc(f"{viewshed} = null()", env=env)
 
 
 def main():
     env = os.environ.copy()
     env["GRASS_OVERWRITE"] = "1"
     elevation = "elev_lid792_1m"
+    elev_resampled = "elev_resampled"
+    # We use resampling to get a similar resolution as with Tangible Landscape.
+    gs.run_command("g.region", raster=elevation, res=4, flags="a", env=env)
+    gs.run_command("r.resamp.stats", input=elevation, output=elev_resampled, env=env)
+    # The end of the block which needs no editing.
 
-    run_viewshed(scanned_elev=elevation, env=env)
+    # Code specific to testing of the analytical function.
+    # Create points which is the additional input needed for the process.
+    points = "points"
+    gs.write_command(
+        "v.in.ascii",
+        flags="t",
+        input="-",
+        output=points,
+        separator="comma",
+        stdin="638432,220382",
+        env=env,
+    )
+    run_viewshed(
+        scanned_elev=elev_resampled,
+        scanned_calib_elev=elev_resampled,
+        points=points,
+        env=env,
+    )
 
 
 if __name__ == "__main__":
