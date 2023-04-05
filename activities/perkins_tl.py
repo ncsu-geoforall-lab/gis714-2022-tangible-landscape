@@ -19,21 +19,39 @@ def main():
 
     run_slope(scanned_elev=elev_resampled, env=env)
 
+
 if __name__ == "__main__":
     main()
-    
+
+
 # my code additions below
 def LCP(elevation, start_coordinate, end_coordinate, env):
-    gs.run_command('r.slope.aspect', elevation=scanned_elev, slope='slope', env=env)
-    gs.run_command('r.cost', input='slope', output='cost', start_coordinates=start_coordinate,
-                   outdir='outdir', flags='k', env=env)
-    gs.run_command('r.colors', map='cost', color='slope', env=env)
-    gs.run_command('r.drain', input='cost', output='drain', direction='outdir',
-                   drain='drain', flags='d', start_coordinates=end_coordinate, env=env)
-if __name__ == '__main__':
-    elevation = 'elev_lid792_1m'
+    gs.run_command("r.slope.aspect", elevation=scanned_elev, slope="slope", env=env)
+    gs.run_command(
+        "r.cost",
+        input="slope",
+        output="cost",
+        start_coordinates=start_coordinate,
+        outdir="outdir",
+        flags="k",
+        env=env,
+    )
+    gs.run_command("r.colors", map="cost", color="slope", env=env)
+    gs.run_command(
+        "r.drain",
+        input="cost",
+        output="drain",
+        direction="outdir",
+        drain="drain",
+        flags="d",
+        start_coordinates=end_coordinate,
+        env=env,
+    )
+
+
+if __name__ == "__main__":
+    elevation = "elev_lid792_1m"
     env = None
     start = [638469, 220070]
     end = [638928, 220472]
     LCP(elevation, start, end, env)
-    
